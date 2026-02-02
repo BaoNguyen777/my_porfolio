@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+body {
+  background: radial-gradient(circle at 20% 20%, rgba(0, 255, 200, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(120, 120, 255, 0.08), transparent 40%),
+    #0b1117;
+}
+
+
+.scanline {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom,
+      transparent 0px,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 3px);
+  opacity: 0.25;
+}
+
+
+.glow {
+  box-shadow: 0 0 0 1px rgba(16, 185, 129, .25),
+    0 0 20px rgba(16, 185, 129, .15);
+}

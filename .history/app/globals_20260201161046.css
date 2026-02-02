@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+
+body {
+  background: radial-gradient(circle at 20% 20%, rgba(0,255,200,0.08), transparent 40%),
+              radial-gradient(circle at 80% 30%, rgba(120,120,255,0.08), transparent 40%),
+              #0b1117;
+}
+
+.scanline {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    rgba(255,255,255,0.03) 1px,
+    transparent 3px
+  );
+  opacity: 0.25;
+}
+
+.glow {
+  box-shadow: 0 0 0 1px rgba(16,185,129,.25),
+              0 0 20px rgba(16,185,129,.15);
+}
+
+@keyframes roleSlideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.animate-role-slide-up {
+  animation: roleSlideUp 2.5s ease-in-out;
+}
+
+@keyframes roleMarquee {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-role-marquee {
+  animation: roleMarquee 9s linear infinite;
+}
+
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: floatUpDown 3.5s ease-in-out infinite;
+}
+
+@keyframes gear-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes gear-rotate-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.gear {
+  animation: gear-rotate 26s linear infinite;
+}
+
+.gear.reverse {
+  animation: gear-rotate-reverse 32s linear infinite;
+}
