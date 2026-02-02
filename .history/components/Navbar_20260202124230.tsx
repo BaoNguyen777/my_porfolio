@@ -12,8 +12,10 @@ export default function Navbar() {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        // scroll xuống → ẩn
         setHidden(true);
       } else {
+        // scroll lên → hiện
         setHidden(false);
       }
 
@@ -24,19 +26,9 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    el.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
-
   return (
     <>
-      {/* Spacer */}
+      {/* Spacer tránh che content */}
       <div className="h-20" />
 
       <nav
@@ -56,24 +48,21 @@ export default function Navbar() {
       >
         <div className="flex items-center justify-between">
           {/* LEFT */}
-          <span
-            onClick={() => scrollTo("home")}
-            className="cursor-pointer font-mono text-sm text-emerald-400 hover:text-emerald-300"
-          >
+          <span className="font-mono text-sm text-emerald-400">
             baonguyen@portfolio:~$
           </span>
 
           {/* CENTER */}
           <div className="flex gap-2">
-            <Item icon={<Home size={16} />} label="Trang chủ" onClick={() => scrollTo("home")} />
-            <Item icon={<User size={16} />} label="Domain" onClick={() => scrollTo("domain")} />
-            <Item icon={<Folder size={16} />} label="Dự án" onClick={() => scrollTo("projects")} />
+            <Item icon={<Home size={16} />} label="Trang chủ" href="#home" />
+            <Item icon={<User size={16} />} label="Giới thiệu" href="#about" />
+            <Item icon={<Folder size={16} />} label="Dự án" href="#projects" />
             <Item
               icon={<Briefcase size={16} />}
               label="Kinh nghiệm"
-              onClick={() => scrollTo("experience")}
+              href="#experience"
             />
-            <Item icon={<Mail size={16} />} label="Liên hệ" onClick={() => scrollTo("contact")} />
+            <Item icon={<Mail size={16} />} label="Liên hệ" href="#contact" />
           </div>
 
           {/* RIGHT */}
@@ -91,15 +80,15 @@ export default function Navbar() {
 function Item({
   icon,
   label,
-  onClick,
+  href,
 }: {
   icon: React.ReactNode;
   label: string;
-  onClick: () => void;
+  href: string;
 }) {
   return (
-    <button
-      onClick={onClick}
+    <a
+      href={href}
       className="
         group flex items-center gap-2
         rounded-lg px-3 py-1.5 text-sm
@@ -113,6 +102,6 @@ function Item({
         {icon}
       </span>
       {label}
-    </button>
+    </a>
   );
 }

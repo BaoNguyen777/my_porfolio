@@ -66,7 +66,7 @@ export default function Navbar() {
           {/* CENTER */}
           <div className="flex gap-2">
             <Item icon={<Home size={16} />} label="Trang chủ" onClick={() => scrollTo("home")} />
-            <Item icon={<User size={16} />} label="Domain" onClick={() => scrollTo("domain")} />
+            <Item icon={<User size={16} />} label="Giới thiệu" onClick={() => scrollTo("about")} />
             <Item icon={<Folder size={16} />} label="Dự án" onClick={() => scrollTo("projects")} />
             <Item
               icon={<Briefcase size={16} />}

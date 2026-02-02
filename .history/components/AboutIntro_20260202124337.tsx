@@ -5,7 +5,7 @@ import { Mail, Download } from "lucide-react";
 
 export default function AboutIntro() {
   return (
-    <section className="mt-20 text-center">
+    <section id="about" className="mt-20 text-center">
       {/* tên & role */}
       <h1 className="text-6xl font-bold bg-gradient-to-r from-emerald-400 to-indigo-400 bg-clip-text text-transparent">
         Võ Trúc Nhi
