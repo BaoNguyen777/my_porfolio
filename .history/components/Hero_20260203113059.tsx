@@ -134,7 +134,7 @@ function Right() {
         <div className="space-y-1 text-sm">
           <p>📞 0353 530 086</p>
           <p>✉️ baonguyen28052001@gmail.com</p>
-          <p>🌐 baonguyn.vercel.app</p>
+          <p>🌐 baonguyen.dev</p>
         </div>
       </div>
 
