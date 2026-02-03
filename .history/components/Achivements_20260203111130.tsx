@@ -88,11 +88,10 @@ export function Achievements() {
         >
           Achievements
         </h2>
-        <p className="mt-3 text-center text-slate-400">
-          Timeline thành tựu & dự án theo năm
-        </p>
       </Floating>
-      
+      <p className="mt-3 text-center text-slate-400">
+        Timeline thành tựu & dự án theo năm
+      </p>
 
       <div className="relative mt-20 flex flex-col items-center">
         {/* LINE BEHIND */}

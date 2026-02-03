@@ -186,10 +186,10 @@ export default function Projects() {
         <h2 className="text-center text-5xl font-bold bg-gradient-to-r from-emerald-400 to-indigo-400 bg-clip-text text-transparent">
           Featured Projects
         </h2>
-        <p className="mt-3 text-center text-slate-400">
-          Một số sản phẩm & hệ thống tiêu biểu
-        </p>
       </Floating>
+      <p className="mt-3 text-center text-slate-400">
+        Một số sản phẩm & hệ thống tiêu biểu
+      </p>
 
       <div className="mt-20 grid grid-cols-1 gap-12 md:grid-cols-2">
         {projects.map((p, i) => (

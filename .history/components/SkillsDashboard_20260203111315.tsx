@@ -20,12 +20,12 @@ export function SkillsDashboard() {
   return (
     <section className="mx-auto mt-28 w-[92%]">
       <Floating>
-        <h2 className="text-center text-5xl font-bold bg-gradient-to-r from-emerald-400 to-indigo-400 bg-clip-text text-transparent">
-          Skills Dashboard
-        </h2>
-        <p className="mt-3 text-center text-slate-400">
-          Interactive overview of technical expertise
-        </p>
+      <h2 className="text-center text-5xl font-bold bg-gradient-to-r from-emerald-400 to-indigo-400 bg-clip-text text-transparent">
+        Skills Dashboard
+      </h2>
+      <p className="mt-3 text-center text-slate-400">
+        Interactive overview of technical expertise
+      </p>
       </Floating>
 
       <div className="mt-10 flex items-center justify-between rounded-xl border border-indigo-500/20 bg-black/40 p-4">

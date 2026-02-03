@@ -14,20 +14,18 @@ export function Domains() {
   ];
 
   const [active, setActive] = useState(0);
-  const activeColor = domains[active].color;
 
-  /* ===== DESKTOP CONFIG ===== */
   const wrapperSize = 560;
   const circleSize = 440;
   const radius = circleSize / 2;
   const step = (2 * Math.PI) / domains.length;
+  const activeColor = domains[active].color;
 
   return (
-    <section id="domain" className="mx-auto mt-32 w-full overflow-hidden px-4">
-      {/* ================= TITLE ================= */}
+    <section id="domain" className="mx-auto mt-36 w-full overflow-hidden">
       <Floating>
         <h2
-          className="text-center text-4xl md:text-5xl font-bold transition-colors duration-1000"
+          className="text-center text-5xl font-bold transition-colors duration-1000"
           style={{ color: activeColor }}
         >
           Domains
@@ -36,40 +34,58 @@ export function Domains() {
           Các lĩnh vực website tôi đã triển khai thực tế
         </p>
       </Floating>
-
-      {/* =========================================================
-          ======================= DESKTOP ========================
-          ========================================================= */}
-      <div className="relative mx-auto mt-20 hidden lg:block" style={{ width: wrapperSize, height: wrapperSize }}>
-        {/* SVG ARCS */}
+      
+      <div
+        className="relative mx-auto mt-20"
+        style={{ width: wrapperSize, height: wrapperSize }}
+      >
+        {/* ================= CURVED SIDE LINES ================= */}
         <svg
-          width={wrapperSize + 420}
-          height={wrapperSize + 420}
-          viewBox="0 0 920 920"
-          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-        >
-          <path
-            d="M 190 210 A 360 360 0 0 0 190 710"
-            fill="none"
-            stroke={activeColor}
-            strokeWidth="7.5"
-            strokeDasharray="14 18"
-            opacity="0.55"
-            style={{ animation: "dashDown 6s linear infinite" }}
-          />
-          <path
-            d="M 730 210 A 360 360 0 0 1 730 710"
-            fill="none"
-            stroke={activeColor}
-            strokeWidth="7.5"
-            strokeDasharray="14 18"
-            opacity="0.55"
-            style={{ animation: "dashUp 6s linear infinite" }}
-          />
-          <circle cx="460" cy="460" r="11" fill={activeColor} opacity="0.7" />
-        </svg>
+  width={wrapperSize + 420}
+  height={wrapperSize + 420}
+  viewBox="0 0 920 920"
+  className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+>
+  {/* LEFT ARC */}
+  <path
+    d="
+      M 190 210
+      A 360 360 0 0 0 190 710
+    "
+    fill="none"
+    stroke={activeColor}
+    strokeWidth="7.5"
+    strokeDasharray="14 18"
+    opacity="0.55"
+    style={{ animation: "dashDown 6s linear infinite" }}
+  />
 
-        {/* CIRCLE */}
+  {/* RIGHT ARC */}
+  <path
+    d="
+      M 730 210
+      A 360 360 0 0 1 730 710
+    "
+    fill="none"
+    stroke={activeColor}
+    strokeWidth="7.5"
+    strokeDasharray="14 18"
+    opacity="0.55"
+    style={{ animation: "dashUp 6s linear infinite" }}
+  />
+
+  {/* CENTER DOT */}
+  <circle
+    cx="460"
+    cy="460"
+    r="11"
+    fill={activeColor}
+    opacity="0.7"
+  />
+</svg>
+
+
+        {/* ================= DOMAIN CIRCLE ================= */}
         <div
           className="absolute left-1/2 top-1/2 rounded-full border transition-colors duration-1000"
           style={{
@@ -81,7 +97,7 @@ export function Domains() {
           }}
         />
 
-        {/* DOMAIN ITEMS */}
+        {/* ================= DOMAIN ITEMS ================= */}
         {domains.map((d, i) => {
           const angle = step * (i - active) - Math.PI / 2;
           const x = Math.cos(angle) * radius;
@@ -101,7 +117,7 @@ export function Domains() {
                 className="w-52 rounded-2xl border bg-black p-5 text-center transition-all duration-700"
                 style={{
                   borderColor: d.color,
-                  opacity: isActive ? 1 : 0.6,
+                  opacity: isActive ? 1 : 0.65,
                   transform: isActive ? "scale(1.25)" : "scale(0.95)",
                   boxShadow: isActive
                     ? `0 0 45px ${d.color}88`
@@ -128,60 +144,45 @@ export function Domains() {
             </div>
           );
         })}
-      </div>
 
-      {/* =========================================================
-          ======================== MOBILE =========================
-          ========================================================= */}
-      <div className="mx-auto mt-16 flex max-w-md flex-col gap-4 lg:hidden">
-        {domains.map((d, i) => {
-          const isActive = i === active;
+        {/* ================= CENTER ICON ================= */}
+        <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div
+            className="relative flex h-12 w-12 items-center justify-center rounded-full"
+            style={{
+              background: activeColor,
+              boxShadow: `0 0 30px ${activeColor}99`,
+            }}
+          >
+            <div className="h-4 w-4 rounded-full bg-black" />
+          </div>
+        </div>
 
-          return (
-            <button
-              key={d.title}
-              onClick={() => setActive(i)}
-              className="rounded-xl border bg-black px-5 py-4 text-left transition-all duration-500"
-              style={{
-                borderColor: d.color,
-                boxShadow: isActive
-                  ? `0 0 30px ${d.color}66`
-                  : `0 0 12px ${d.color}33`,
-              }}
-            >
-              <h3
-                className="text-lg font-semibold"
-                style={{ color: d.color }}
-              >
-                {d.title}
-              </h3>
-
-              <div
-                className="overflow-hidden transition-all duration-500"
-                style={{
-                  maxHeight: isActive ? "120px" : "0px",
-                  opacity: isActive ? 1 : 0,
-                  marginTop: isActive ? "8px" : "0px",
-                }}
-              >
-                <p className="text-sm text-slate-400">
-                  {d.desc}
-                </p>
-              </div>
-            </button>
-          );
-        })}
+        {/* ================= CENTER GLOW ================= */}
+        <div
+          className="pointer-events-none absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl transition-all duration-1000"
+          style={{ background: activeColor, opacity: 0.18 }}
+        />
       </div>
 
       {/* ================= ANIMATIONS ================= */}
       <style jsx>{`
         @keyframes dashDown {
-          from { stroke-dashoffset: 0; }
-          to { stroke-dashoffset: -160; }
+          from {
+            stroke-dashoffset: 0;
+          }
+          to {
+            stroke-dashoffset: -160;
+          }
         }
+
         @keyframes dashUp {
-          from { stroke-dashoffset: 0; }
-          to { stroke-dashoffset: 160; }
+          from {
+            stroke-dashoffset: 0;
+          }
+          to {
+            stroke-dashoffset: 160;
+          }
         }
       `}</style>
     </section>

@@ -89,8 +89,8 @@ export function Achievements() {
           Achievements
         </h2>
         <p className="mt-3 text-center text-slate-400">
-          Timeline thành tựu & dự án theo năm
-        </p>
+        Timeline thành tựu & dự án theo năm
+      </p>
       </Floating>
       
 

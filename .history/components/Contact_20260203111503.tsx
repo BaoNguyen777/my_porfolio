@@ -8,16 +8,14 @@ export default function ContactPage() {
     <main id="contact" className="min-h-screen bg-[#0b1220] px-4 py-20 flex items-center justify-center">
       <section className="w-full max-w-6xl">
         {/* Title */}
-        <Floating>
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-              &lt;Liên hệ /&gt;
-            </h1>
-            <p className="mt-4 text-gray-400 text-sm">
-              portfolio.contact.description
-            </p>
-          </div>
-        </Floating>
+        <Floating
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            &lt;Liên hệ /&gt;
+          </h1>
+          <p className="mt-4 text-gray-400 text-sm">
+            portfolio.contact.description
+          </p>
+        </Floating/</main>>
 
         {/* Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

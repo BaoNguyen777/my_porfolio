@@ -10,7 +10,7 @@ export default function ContactPage() {
         {/* Title */}
         <Floating>
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            <h1 className="text-center text-5xl font-bold bg-gradient-to-r from-emerald-400 to-indigo-400 bg-clip-text text-transparent">
               &lt;Liên hệ /&gt;
             </h1>
             <p className="mt-4 text-gray-400 text-sm">
